@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "build": "babel src -s -D -d dist",
-    "start": "NODE_ENV=production node ./dist/app.js",
+    "start": "yarn build && NODE_ENV=production node ./dist/app.js",
     "dev": "nodemon ./src/app.js --watch routes --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
