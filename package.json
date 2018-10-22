@@ -4,21 +4,22 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
+    "postinstall": "yarn build",
     "build": "babel src -s -D -d dist",
-    "start": "yarn build && NODE_ENV=production node ./dist/app.js",
+    "start": "NODE_ENV=production node ./dist/app.js",
     "dev": "nodemon ./src/app.js --watch routes --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.4"
   }
 }
