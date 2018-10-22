@@ -1,29 +1,31 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 let router = express.Router();
 
-router.get('/', (req, res, next) => {
-  let languages = [
-    {
-      language: 'Spanish'
-    },
-    {
-      language: "French"
-    },
-    {
-      langauge: "German"
-    }
-  ];
-  res.json(languages);
-});
-router.get('/users', (req, res, next ) => {
-  let users = [
-    new User('James Coonce','jcoonce','none@none.com'),
-    new User('Bob Coonce','bcoonce','none@none.com'),
-    new User('Euri','euri','none@none.com'),
-    new User('Norman','jcoonce','none@none.com'),
-  ];
+router.use(bodyParser.json());
 
-  res.json(users);
+const getRandomInt = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+router.get('/health', (req, res) => {
+  res.send({ ok: true });
+});
+
+router.get('/result', (req, res) => {
+  const items = JSON.parse(req.query.items);
+  const length = items.length;
+  const index = getRandomInt(1, length + 1);
+  res.json({ result: items[index-1]});
+});
+
+router.post('/result', (req, res) => {
+  const items = req.body.items;
+  const length = items.length;
+  const index = getRandomInt(1, length + 1);
+  res.json({ result: items[index-1]});
 });
 
 export default router;

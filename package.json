@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js --watch server --exec babel-node",
+    "start": "nodemon app.js --watch routes --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "hejiaji",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
