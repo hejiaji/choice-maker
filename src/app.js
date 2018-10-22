@@ -9,6 +9,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', router);
 
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
   console.log(`App listening on port ${port}!`)
 });
