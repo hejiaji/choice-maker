@@ -18,14 +18,14 @@ router.get('/result', (req, res) => {
   const items = JSON.parse(req.query.items);
   const length = items.length;
   const index = getRandomInt(1, length + 1);
-  res.json({ result: items[index-1]});
+  res.json({ items: items, result: items[index-1]});
 });
 
 router.post('/result', (req, res) => {
   const items = req.body.items;
   const length = items.length;
   const index = getRandomInt(1, length + 1);
-  res.json({ result: items[index-1]});
+  res.json({ items: items, result: items[index-1]});
 });
 
 export default router;
