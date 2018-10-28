@@ -31,6 +31,7 @@ router.get('/result', function (req, res) {
   var length = items.length;
   var index = getRandomInt(1, length + 1);
   res.json({
+    items: items,
     result: items[index - 1]
   });
 });
@@ -39,6 +40,7 @@ router.post('/result', function (req, res) {
   var length = items.length;
   var index = getRandomInt(1, length + 1);
   res.json({
+    items: items,
     result: items[index - 1]
   });
 });

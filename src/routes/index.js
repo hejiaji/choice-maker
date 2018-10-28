@@ -1,14 +1,16 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+import path from 'path';
 let router = express.Router();
-
-router.use(bodyParser.json());
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 };
+
+router.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname,'index.html'));
+});
 
 router.get('/health', (req, res) => {
   res.send({ ok: true });
